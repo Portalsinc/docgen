@@ -204,6 +204,7 @@ function DocGen (process)
                 "website",
                 "module",
                 "id",
+                "packages",
                 "summary",
                 "marking",
                 "legalese"
@@ -255,6 +256,17 @@ function DocGen (process)
                         name: { type: "string" },
                         url: { type: "string" },
                     }
+                },
+                packages: {
+                    type : "array",
+                    items: { oneOf: [ { 
+                        type: "object",
+                        required: [ "name", "svn"],
+                        properties: {
+                            name: { type: "string" },
+                            svn: { type: "string" },
+                        }
+                    }]}
                 },
                 backlink: {
                     type : "object",
@@ -529,6 +541,16 @@ function DocGen (process)
             website += meta.parameters.website.name;
         }
 
+        var packages = '';
+        meta.parameters.packages.forEach (function (package) {
+            if (package.svn !== '') {
+                packages += '<a href="'+package.url+'">'+package.name+'</a>, ';
+            } else {
+                packages += package.name+', ';
+            }
+        });
+        packages = packages.replace(/,\s*$/, ""); //remove trailing commas
+
         var backlink = '';
         if (meta.parameters.backlink.url !== '') {
             backlink += '<a href="'+meta.parameters.backlink.url+'">'+meta.parameters.backlink.name+'</a>';
@@ -579,6 +601,7 @@ function DocGen (process)
                 $('#dg-module').text(meta.parameters.module);
                 $('#dg-id').html(meta.parameters.id);
                 $('#dg-website').html(website);
+                $('#dg-packages').html(packages);
                 $('#dg-backlink').html(backlink);
                 $('#dg-summary').text(meta.parameters.summary);
                 $('#dg-copyright').html(copyright);
