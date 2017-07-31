@@ -34,7 +34,7 @@ Array.prototype.get = function(name) {
 function DocGen(process) {
   var mainProcess = process;
   var version = "2.1.3";
-  var wkhtmltopdfVersion = "wkhtmltopdf 0.12.2.1 (with patched qt)"; //output from wkhtmltopdf -V
+  var wkhtmltopdfVersion = "wkhtmltopdf 0.12.4 (with patched qt)"; //output from wkhtmltopdf -V
   var options;
   var templates = {};
   var meta = {};
@@ -621,19 +621,20 @@ function DocGen(process) {
 
     var packages = "";
     meta.parameters.packages.forEach(function(package) {
+      packages = packages += '<table class="w-table w-fixed">';
       if (package.svn !== "") {
         packages +=
-          '<span class="w-left">' +
-          package.svn +
-          "</span>" +
-          '<span class="w-left">' +
+          "<tr><td><strong>" +
           package.name +
-          "</span>, ";
+          "</strong></td><td><strong>" +
+          package.svn +
+          "</strong></td></tr>";
       } else {
         packages += package.name + ", ";
       }
     });
     packages = packages.replace(/,\s*$/, ""); //remove trailing commas
+    packages += "</table>";
 
     var backlink = "";
     if (meta.parameters.backlink.url !== "") {
