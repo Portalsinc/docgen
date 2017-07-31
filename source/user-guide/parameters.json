@@ -21,6 +21,12 @@
       "url": ""
     }
   ],
+  "packages": [
+    {
+      "name": "",
+      "svn": ""
+    }
+  ],
   "website": {
     "name": "Github",
     "url": "https://github.com/mtmacdonald/docgen"
@@ -29,12 +35,6 @@
     "name": "",
     "url": ""
   },
-  "packages": [
-    {
-      "name": "",
-      "svn": ""
-    }
-  ],
   "module": "",
   "id": "",
   "summary": "DocGen is a command-line documentation tool for software products. It takes plain text or CommonMark (Markdown) as input, and generates both a static website and a PDF copy.",

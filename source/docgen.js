@@ -215,10 +215,10 @@ function DocGen(process) {
         "author",
         "owner",
         "contributors",
+        "packages",
         "website",
         "module",
         "id",
-        "packages",
         "summary",
         "marking",
         "legalese"
@@ -267,14 +267,6 @@ function DocGen(process) {
             ]
           }
         },
-        website: {
-          type: "object",
-          required: ["name", "url"],
-          properties: {
-            name: { type: "string" },
-            url: { type: "string" }
-          }
-        },
         packages: {
           type: "array",
           items: {
@@ -288,6 +280,14 @@ function DocGen(process) {
                 }
               }
             ]
+          }
+        },
+        website: {
+          type: "object",
+          required: ["name", "url"],
+          properties: {
+            name: { type: "string" },
+            url: { type: "string" }
           }
         },
         backlink: {
