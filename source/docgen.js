@@ -18,7 +18,7 @@ markdown.validateLink = function() {
   return true;
 };
 
-/** extend Array for package names */
+/** extend Array for package name/svn */
 
 Array.prototype.get = function(name) {
   for (var i = 0, len = this.length; i < len; i++) {
