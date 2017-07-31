@@ -622,7 +622,13 @@ function DocGen(process) {
     var packages = "";
     meta.parameters.packages.forEach(function(package) {
       if (package.svn !== "") {
-        packages += '<a href="' + package.svn + '">' + package.name + "</a>, ";
+        packages +=
+          '<span class="w-left">' +
+          package.svn +
+          "</span>" +
+          '<span class="w-left">' +
+          package.name +
+          "</span>, ";
       } else {
         packages += package.name + ", ";
       }
