@@ -620,21 +620,19 @@ function DocGen(process) {
     }
 
     var packages = "";
-    packages = packages += '<table class="w-table w-fixed">';
     meta.parameters.packages.forEach(function(package) {
       if (package.svn !== "") {
         packages +=
           "<tr><td><strong>" +
           package.name +
-          "</strong></td><td><strong>" +
+          "</strong></td><td>" +
           package.svn +
-          "</strong></td></tr>";
+          "</td></tr>";
       } else {
         packages += package.name + ", ";
       }
     });
     packages = packages.replace(/,\s*$/, ""); //remove trailing commas
-    packages += "</table>";
 
     var backlink = "";
     if (meta.parameters.backlink.url !== "") {
