@@ -620,8 +620,8 @@ function DocGen(process) {
     }
 
     var packages = "";
+    packages = packages += '<table class="w-table w-fixed">';
     meta.parameters.packages.forEach(function(package) {
-      packages = packages += '<table class="w-table w-fixed">';
       if (package.svn !== "") {
         packages +=
           "<tr><td><strong>" +
@@ -993,7 +993,10 @@ function DocGen(process) {
   var createRedirect = function() {
     if (options.redirect) {
       var parent = options.output.replace(/\/$/, ""); //trim any trailing slash
-      parent = parent.split(path.sep).slice(-1).pop(); //get name of final directory in the path
+      parent = parent
+        .split(path.sep)
+        .slice(-1)
+        .pop(); //get name of final directory in the path
       var homepage = meta.contents[0].pages[0];
       var homepage =
         homepage.source.substr(0, homepage.source.lastIndexOf(".")) + ".html";
