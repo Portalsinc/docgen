@@ -657,7 +657,8 @@ function DocGen(process) {
     });
     contributors = contributors.replace(/,\s*$/, ""); //remove trailing commas
 
-    var copyright = "&copy; " + year + " " + organization;
+    var copyright =
+      "&copy; " + year + " " + organization + ". All rights reserved.";
 
     var webTitle = meta.parameters.title;
 
